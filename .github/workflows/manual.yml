@@ -24,5 +24,5 @@ jobs:
         pip install -r requirements.txt  # Use the relative path to the requirements.txt file
 
     - name: Run Python script
-      run: echo "${{ env.URL }} ${{ env.MARKETS }}. Today is ${{ env.AGENCIES }}!"
+      run: echo "${{ vars.URL }} ${{ vars.MARKETS }}. Today is ${{ vars.AGENCIES }}!"
       # run: python test.py  # Specify the relative path to your Python script in the repository
