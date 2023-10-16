@@ -29,4 +29,11 @@ jobs:
           MARKETS: ${{ vars.MARKETS }}
           AGENCIES: ${{ vars.AGENCIES }}
       # run: echo "${{ vars.URL }} ${{ vars.MARKETS }}. Today is ${{ vars.AGENCIES }}!"
-      run: python test.py >>new.txt # Specify the relative path to your Python script in the repository
+      run: python test.py >>README.md # Specify the relative path to your Python script in the repository
+    - name: Commit changes and push to repository
+      run: |
+        git config --global user.email "you@example.com"
+        git config --global user.name "mohit"
+        git add README.md
+        git commit -m "updating README.md"
+        git push
