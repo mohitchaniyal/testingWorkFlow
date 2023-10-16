@@ -13,3 +13,4 @@ for agency in agencies:
         df["Market"]=market
         df["RequestDate"]=datetime.now().date().strftime('%Y-%m-%d')
         master=pd.concat([master,df],ignore_index=True)
+print(master.iloc[0])
