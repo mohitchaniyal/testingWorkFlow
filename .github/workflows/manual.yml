@@ -17,7 +17,8 @@ jobs:
 
     - name: Checkout repository
       uses: actions/checkout@v2
-
+      with:
+          token: ${{ secrets.GITHUB_TOKEN }}
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -36,4 +37,4 @@ jobs:
         git config --global user.name "mohit"
         git add README.md
         git commit -m "updating README.md"
-        git push
+        git push https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/mohitchaniyal/testingWorkFlow.git HEAD:main
