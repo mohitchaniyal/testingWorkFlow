@@ -36,23 +36,24 @@ class MarketInsight:
             return {"success":False,"message":f"error in {self.__filter_data.__name__} : {e}"}
         
     def __load_to_file(self,data):
-        try:
-            with open("README.md","w") as f:
-                for top_50 in data:
-                    output=f"## {top_50['Agency'].iloc[0].upper()} TOP 50 {top_50['Market'].iloc[0].upper()}\n"
-                    output+="|S.No"
-                    top_50=top_50[['Company', 'Group', 'Prev Close (Rs)', 'Current Price (Rs)', '% Change', 'RequestDate']]
-                    for col in top_50.columns:
-                            output+=f"|{col}"
-                    else :
-                                output+="|\n"
-                    for col in top_50.columns:
-                        output+="| :--------"
-                    else :
-                        output+="|:--------|\n"
-                    output+=top_50.to_csv(header=None,na_rep="NA").replace(",","|").replace("\r","")
-                    output+="\n"
-                    f.write(output)
+        try:    
+            total=""
+            for top_50 in data:
+                output=f"## {top_50['Agency'].iloc[0].upper()} TOP 50 {top_50['Market'].iloc[0].upper()}\n"
+                output+="|S.No"
+                top_50=top_50[['Company', 'Group', 'Prev Close (Rs)', 'Current Price (Rs)', '% Change', 'RequestDate']]
+                for col in top_50.columns:
+                        output+=f"|{col}"
+                else :
+                            output+="|\n"
+                for col in top_50.columns:
+                    output+="| :--------"
+                else :
+                    output+="|:--------|\n"
+                output+=top_50.to_csv(header=None,na_rep="NA").replace(",","|").replace("\r","")
+                output+="\n"
+                total+=output
+            print(total)
             return {"success":True}
         
         except Exception as e:
@@ -82,6 +83,6 @@ class MarketInsight:
     @classmethod
     def pipline_handler(cls):
         resp=cls()._process_data()
-        print(resp)
+        # print(resp)
         
 MarketInsight.pipline_handler()       
