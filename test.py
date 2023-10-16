@@ -4,9 +4,9 @@ from datetime import datetime
 import pandas as pd
 import os
 
-agencies = os.getenv('AGENCIES')
+agencies = os.getenv('AGENCIES').split(",")
 url=os.getenv('URL')
-markets=os.getenv('MARKETS')
+markets=os.getenv('MARKETS').split(",")
 print(agencies,url,markets)
 
 master=pd.DataFrame()
