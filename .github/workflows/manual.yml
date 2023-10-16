@@ -24,4 +24,5 @@ jobs:
         pip install -r requirements.txt  # Use the relative path to the requirements.txt file
 
     - name: Run Python script
-      run: python test.py  # Specify the relative path to your Python script in the repository
+      run: echo "$URL $AGENCIES Today is $MARKETS!"
+      # run: python test.py  # Specify the relative path to your Python script in the repository
