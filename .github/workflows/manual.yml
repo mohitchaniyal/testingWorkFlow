@@ -29,4 +29,4 @@ jobs:
           MARKETS: ${{ vars.MARKETS }}
           AGENCIES: ${{ vars.AGENCIES }}
       # run: echo "${{ vars.URL }} ${{ vars.MARKETS }}. Today is ${{ vars.AGENCIES }}!"
-      run: python test.py # Specify the relative path to your Python script in the repository
+      run: python test.py >>new.txt # Specify the relative path to your Python script in the repository
