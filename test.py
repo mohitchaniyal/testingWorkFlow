@@ -2,6 +2,12 @@ import requests
 from bs4 import BeautifulSoup as soup
 from datetime import datetime
 import pandas as pd
+import os
+
+agencies = os.getenv('AGENCIES')
+url=os.getenv('URL')
+markets=os.getenv('MARKETS')
+print(agencies,url,markets)
 
 master=pd.DataFrame()
 for agency in agencies:
