@@ -2,7 +2,7 @@ name: Scheduled Python Workflow
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Set your desired cron schedule here
+    - cron: '*/1 * * * *'  # Set your desired cron schedule here
 
 jobs:
   build:
