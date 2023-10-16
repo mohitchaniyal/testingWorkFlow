@@ -20,4 +20,4 @@ jobs:
         # pip install -r requirements.txt  # if you have any requirements
 
     - name: Run Python script
-      run: python   test/py # Specify the path to your Python script
+      run: python   test.py # Specify the path to your Python script
