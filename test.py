@@ -29,8 +29,8 @@ class MarketInsight:
         
     def __filter_data(self,data):
         try :
-            top_50_bse=data[(master["Agency"]=="bse") & (data["Market"]=="gainers")].sort_values("% Change",ascending=False)[:50].reset_index(drop=True)
-            top_50_nse=data[(master["Agency"]=="nse") & (data["Market"]=="gainers")].sort_values("% Change",ascending=False)[:50].reset_index(drop=True)
+            top_50_bse=data[(data["Agency"]=="bse") & (data["Market"]=="gainers")].sort_values("% Change",ascending=False)[:50].reset_index(drop=True)
+            top_50_nse=data[(data["Agency"]=="nse") & (data["Market"]=="gainers")].sort_values("% Change",ascending=False)[:50].reset_index(drop=True)
             return {"success":True,"data":(top_50_bse,top_50_nse)}
         except Exception as e:
             return {"success":False,"message":f"error in {self.__filter_data.__name__} : {e}"}
