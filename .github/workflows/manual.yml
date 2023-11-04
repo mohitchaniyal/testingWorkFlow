@@ -31,14 +31,11 @@ jobs:
           AGENCIES: ${{ vars.AGENCIES }}
       # run: echo "${{ vars.URL }} ${{ vars.MARKETS }}. Today is ${{ vars.AGENCIES }}!"
       run: python test.py >>README.md # Specify the relative path to your Python script in the repository
-    - name: Commit files
+    - name: Commit and Push The Results From Python Selenium Action
       run: |
-        git config --local user.email ${{ secrets.GIT_EMAIL }}
-        git config --local user.name ${{ secrets.GIT_NAME }}
-        git commit -am "Updated Proxies"
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-      env:
-        CI: true
+         git config --global user.name "github-actions[bot]"
+         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+         git add ./ins*
+         git commit -m "GitHub Actions Results added"
+         git push
+
