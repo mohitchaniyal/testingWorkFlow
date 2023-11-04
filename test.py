@@ -53,9 +53,12 @@ class MarketInsight:
                 output+=top_50.to_csv(header=None,na_rep="NA").replace(",","|").replace("\r","")
                 output+="\n"
                 total+=output
-            print(total)
+                
+            with open("insignt.md","w") as f:
+                f.write(total)
             return {"success":True}
         
+            
         except Exception as e:
             return {"success":False,"message":f"error in {self.__load_to_file.__name__} : {e}"}
         
