@@ -1,8 +1,8 @@
 name: Scheduled Python Workflow
 
 on:
-  # schedule:
-  #   - cron: '*/5 * * * *'  # Set your desired cron schedule here to run every 5 minutes
+  schedule:
+    - cron: '*/5 * * * *'  # Set your desired cron schedule here to run every 5 minutes
   workflow_dispatch:  # Enable the workflow to be manually triggered
 
 jobs:
